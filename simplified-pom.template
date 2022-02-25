@@ -5,7 +5,7 @@
 
     <groupId>com.groupdocs</groupId>
     <artifactId>groupdocs-metadata-cloud</artifactId>
-    <version>{VERSION}</version>
+    <version>22.2</version>
     <packaging>jar</packaging>
 
     <name>groupdocs-metadata-cloud</name>

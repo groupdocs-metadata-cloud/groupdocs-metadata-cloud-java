@@ -35,6 +35,9 @@ import com.groupdocs.cloud.metadata.model.*;
 
 import org.junit.Test;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 public class MetadataInfoApiTests extends BaseApiTest {
 
 	@Test
@@ -65,7 +68,7 @@ public class MetadataInfoApiTests extends BaseApiTest {
 		assertNotNull(result);
 		assertEquals("APPLICATION/VND.OPENXMLFORMATS-OFFICEDOCUMENT.SPREADSHEETML.SHEET",
 				result.getFileType().getMimeType().toUpperCase());
-		assertEquals(Integer.valueOf(3), result.getPageCount());
+		assertEquals(Integer.valueOf(2), result.getPageCount());
 	}
 
 	@Test

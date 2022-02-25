@@ -63,6 +63,21 @@ public class MetadataExtractApiTests extends BaseApiTest {
 	}
 
 	@Test
+	public void ExtractApiTest_Mkv() throws ApiException {
+		// Arrange
+		ExtractOptions options = new ExtractOptions();
+		options.setFileInfo(TestFiles.Mkv.ToFileInfo());
+		ExtractRequest request = new ExtractRequest(options);
+
+		// Act & Assert
+		ExtractResult result = metadataApi.extract(request);
+
+		assertNotNull(result.getMetadataTree());
+		assertNotNull(result.getMetadataTree().getInnerPackages());
+		assertTrue(result.getMetadataTree().getInnerPackages().size() > 0);
+	}
+
+	@Test
 	public void ExtractApiTest_Tag() throws ApiException {
 		// Arrange
 		ExtractOptions options = new ExtractOptions();

@@ -41,6 +41,7 @@ public class TestFiles {
     public static TestFile Jpg = new TestFile("input.jpg", "images\\");
     public static TestFile Json = new TestFile("sample.json", "files\\");
     public static TestFile Psd = new TestFile("iptc.psd", "files\\");
+    public static TestFile Mkv = new TestFile("input.mkv", "files\\");
     public static TestFile NotExist = new TestFile("folder\\file-not-exist.pdf", "");
 
     public static ArrayList<TestFile> GetList() {
@@ -57,6 +58,7 @@ public class TestFiles {
         files.add(Jpg);
         files.add(Json);
         files.add(Psd);
+        files.add(Mkv);
         return files;
     }
 }
