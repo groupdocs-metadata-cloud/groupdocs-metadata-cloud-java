@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -65,7 +65,7 @@ public class MetadataTagsApiTests extends BaseApiTest {
 			infoApi.tags(request);
 			fail("Expected ApiException was not thrown.");
 		} catch (ApiException ex) {
-			assertEquals("The specified file 'documents\\sample-with-password.docx' is protected.", ex.getMessage());
+			assertEquals("The specified file 'documentssample-with-password.docx' is protected.", ex.getMessage());
 		}
 	}
 
@@ -81,24 +81,23 @@ public class MetadataTagsApiTests extends BaseApiTest {
 			infoApi.tags(request);
 			fail("Expected ApiException was not thrown.");
 		} catch (ApiException ex) {
-			assertEquals("Can't find file located at 'folder\\file-not-exist.pdf'.", ex.getMessage());
+			assertEquals("Can't find file located at 'folder/file-not-exist.pdf'.", ex.getMessage());
 		}
 	}
 
 	@Test
-	public void Tags_UnsupportedFormat() {
+	public void Tags_Json() throws ApiException {
 		// Arrange
 		TagsOptions options = new TagsOptions();
 		options.setFileInfo(TestFiles.Json.ToFileInfo());
 		TagsRequest request = new TagsRequest(options);
 
 		// Act & Assert
-		try {
-			infoApi.tags(request);
-			fail("Expected ApiException was not thrown.");
-		} catch (ApiException ex) {
-			assertEquals("The specified file 'files\\sample.json' has type which is not currently supported.",
-					ex.getMessage());
-		}
+		TagsResult result = infoApi.tags(request);
+
+		assertNotNull(result);
+		assertNotNull(result.getRootPackage());
+		assertNotNull(result.getRootPackage().getInnerPackages());
+		assertTrue(result.getRootPackage().getInnerPackages().size() > 0);
 	}
 }

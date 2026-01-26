@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ApiClient.java">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -97,7 +97,7 @@ public class ApiClient {
         this.json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("java-sdk/22.2");
+        setUserAgent("java-sdk/26.1");
 
         // Set connection timeout
         setConnectTimeout(configuration.getTimeout());
@@ -868,30 +868,26 @@ public class ApiClient {
                   throw new ApiException(response.message(), response.code());
                 }
     
-                ApiError apiError = null;
+                com.groupdocs.cloud.metadata.model.Error apiError = null;
                 try {
-                  apiError = json.deserialize(respBody, ApiError.class);
+                  apiError = json.deserialize(respBody, com.groupdocs.cloud.metadata.model.Error.class);
                 } catch (Exception e) {
                   //NOTE: ignore
                 }
-                if(apiError != null && apiError.getError() != null) {
-                  throw new ApiException(apiError.getError().getMessage(), response.code());
-                }   
-                
-				if(apiError != null && apiError.getMessage() != null) {
-                    throw new ApiException(apiError.getMessage(), response.code());
+                if(apiError != null && apiError.getCode() != null) {
+                  throw new ApiException(apiError.getMessage(), response.code());
                 }
-
+                    
                 com.groupdocs.cloud.metadata.model.ApiError apiError1 = null;
                 try {
-                    apiError1 = json.deserialize(respBody, com.groupdocs.cloud.metadata.model.ApiError.class);
+                  apiError1 = json.deserialize(respBody, com.groupdocs.cloud.metadata.model.ApiError.class);
                 } catch (Exception e) {
-                    //NOTE: ignore
+                  //NOTE: ignore
                 }
                 if(apiError1 != null && apiError1.getError() != null && apiError1.getError().getMessage() != null) {
-                    throw new ApiException(apiError1.getError().getMessage(), response.code());
-                }
-				
+                  throw new ApiException(apiError1.getError().getMessage(), response.code());
+                } 
+                
                 AuthError authError = null;
                 try {
                   authError = json.deserialize(respBody, AuthError.class);

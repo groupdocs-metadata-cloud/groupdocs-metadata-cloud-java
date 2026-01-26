@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,19 +30,18 @@ package com.groupdocs.cloud.metadata.api;
 import java.util.ArrayList;
 
 public class TestFiles {    
-    public static TestFile PasswordProtected = new TestFile("sample-with-password.docx", "documents\\");    
-    public static TestFile Docx = new TestFile("input.docx", "documents\\");
-    public static TestFile Doc = new TestFile("input.doc", "documents\\");
-    public static TestFile Pdf = new TestFile("input.pdf", "documents\\");
-    public static TestFile Pptx = new TestFile("input.pptx", "documents\\");
-    public static TestFile Ppt = new TestFile("input.ppt", "documents\\");
-    public static TestFile Xlsx = new TestFile("input.xlsx", "documents\\");
-    public static TestFile Xls = new TestFile("input.xls", "documents\\");
-    public static TestFile Jpg = new TestFile("input.jpg", "images\\");
-    public static TestFile Json = new TestFile("sample.json", "files\\");
-    public static TestFile Psd = new TestFile("iptc.psd", "files\\");
-    public static TestFile Mkv = new TestFile("input.mkv", "files\\");
-    public static TestFile NotExist = new TestFile("folder\\file-not-exist.pdf", "");
+    public static TestFile PasswordProtected = new TestFile("sample-with-password.docx", "documents");    
+    public static TestFile Docx = new TestFile("input.docx", "documents");
+    public static TestFile Doc = new TestFile("input.doc", "documents");
+    public static TestFile Pdf = new TestFile("input.pdf", "documents");
+    public static TestFile Pptx = new TestFile("input.pptx", "documents");
+    public static TestFile Ppt = new TestFile("input.ppt", "documents");
+    public static TestFile Xlsx = new TestFile("input.xlsx", "documents");
+    public static TestFile Xls = new TestFile("input.xls", "documents");
+    public static TestFile Jpg = new TestFile("input.jpg", "images");
+    public static TestFile Json = new TestFile("sample.json", "files");
+    public static TestFile Psd = new TestFile("iptc.psd", "files");
+    public static TestFile NotExist = new TestFile("folder/file-not-exist.pdf", "");
 
     public static ArrayList<TestFile> GetList() {
 
@@ -58,7 +57,6 @@ public class TestFiles {
         files.add(Jpg);
         files.add(Json);
         files.add(Psd);
-        files.add(Mkv);
         return files;
     }
 }
